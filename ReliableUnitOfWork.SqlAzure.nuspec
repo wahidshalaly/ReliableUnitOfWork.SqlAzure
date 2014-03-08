@@ -2,13 +2,13 @@
 <package >
   <metadata>
     <id>ReliableUnitOfWork.SqlAzure</id>
-    <version>0.4.0</version>
+    <version>0.4.1</version>
     <title>Reliable UnitOfWork for Windows Azure SQL Databases</title>
     <authors>Wahid Shalaly</authors>
     <owners>Wahid Shalaly</owners>
-    <licenseUrl>https://github.com/waheedsayed/ReliableUnitOfWork.SqlAzure/blob/master/LICENSE</licenseUrl>
+    <licenseUrl>https://raw.github.com/waheedsayed/ReliableUnitOfWork.SqlAzure/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/waheedsayed/ReliableUnitOfWork.SqlAzure</projectUrl>
-    <iconUrl>https://github.com/waheedsayed/ReliableUnitOfWork.SqlAzure/blob/master/reliable_uow.ico</iconUrl>
+    <iconUrl>https://raw.github.com/waheedsayed/ReliableUnitOfWork.SqlAzure/master/reliable_uow.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A light-weight implementation of UnitOfWork pattern for SqlAzure based on EF6 to benefit from SqlAzureExecutionStrategy.
     This implementation provide a way to share a UnitOfWork, and hence DbContext, between different parts of the application, not only repositories.</description>
