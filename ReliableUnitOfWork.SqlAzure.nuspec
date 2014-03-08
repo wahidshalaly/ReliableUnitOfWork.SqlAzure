@@ -14,5 +14,14 @@
     This implementation provide a way to share a UnitOfWork, and hence DbContext, between different parts of the application, not only repositories.</description>
     <copyright>Copyright © 2014</copyright>
     <tags>unitofwork sqlazure ef6</tags>
+    <dependencies>
+      <dependency id="Autofac" version="3.3.0" />
+      <dependency id="EntityFramework" version="6.0.2" />
+      <dependency id="Serilog" version="1.2.25" />
+    </dependencies>
   </metadata>
+  <files>
+    <file src="src\ReliableUnitOfWork.SqlAzure\bin\Release\ReliableUnitOfWork.SqlAzure.dll" target="lib\net45" />
+    <file src="src\ReliableUnitOfWork.SqlAzure\bin\Release\ReliableUnitOfWork.SqlAzure.pdb" target="lib\net45" />
+  </files>
 </package>
