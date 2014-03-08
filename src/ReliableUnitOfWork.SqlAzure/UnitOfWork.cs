@@ -5,7 +5,7 @@ using Serilog;
 namespace ReliableUnitOfWork.SqlAzure
 {
     public class UnitOfWork<TDbContext> : UnitOfWorkBase<TDbContext>
-        where TDbContext : DbContextBase, new()
+        where TDbContext : UnitDbContext, new()
     {
         public UnitOfWork()
         {

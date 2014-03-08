@@ -5,7 +5,7 @@ using ReliableUnitOfWork.SqlAzure.Interfaces;
 namespace ReliableUnitOfWork.SqlAzure
 {
     [DbConfigurationType(typeof(SqlAzureDbConfiguration))]
-    public abstract class DbContextBase : DbContext, IDbContext
+    public abstract class UnitDbContext : DbContext, IDbContext
     {
     }
 }

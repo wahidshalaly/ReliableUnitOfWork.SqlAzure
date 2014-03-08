@@ -4,7 +4,7 @@ using Serilog;
 namespace ReliableUnitOfWork.SqlAzure
 {
     public class UnitOfWorkFactory<TDbContext> : UnitOfWorkFactoryBase<TDbContext>
-        where TDbContext : DbContextBase, new()
+        where TDbContext : UnitDbContext, new()
     {
         public override IUnitOfWork<TDbContext> StartNew(params IUnitOfWorkPlayer<TDbContext>[] players)
         {
