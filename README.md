@@ -7,3 +7,5 @@ This implementation provide a way to share a UnitOfWork, and hence DbContext, be
 Examples
 ===========
 Coming soon...
+
+For now you may check [this](http://blog.thinkinuous.com/2014/03/reliableunitofworksqlazure-v040-released.html).
