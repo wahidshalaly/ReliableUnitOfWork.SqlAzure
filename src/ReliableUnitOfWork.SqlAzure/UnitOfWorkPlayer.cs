@@ -1,4 +1,4 @@
-﻿using ReliableUnitOfWork.SqlAzure.Interfaces;
+﻿using ReliableUnitOfWork.SqlAzure.Internals;
 
 namespace ReliableUnitOfWork.SqlAzure
 {

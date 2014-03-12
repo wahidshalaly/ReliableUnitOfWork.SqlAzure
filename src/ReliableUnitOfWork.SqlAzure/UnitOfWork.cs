@@ -1,5 +1,5 @@
 ﻿using System;
-using ReliableUnitOfWork.SqlAzure.Interfaces;
+using ReliableUnitOfWork.SqlAzure.Internals;
 using Serilog;
 
 namespace ReliableUnitOfWork.SqlAzure
