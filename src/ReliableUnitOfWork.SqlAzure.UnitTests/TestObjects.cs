@@ -1,4 +1,5 @@
 ﻿using System;
+using ReliableUnitOfWork.SqlAzure.Interfaces;
 
 namespace ReliableUnitOfWork.SqlAzure.UnitTests
 {
@@ -25,6 +26,33 @@ namespace ReliableUnitOfWork.SqlAzure.UnitTests
         protected override void HandlePlayerJoinedUnit(object sender, EventArgs e)
         {
             TestPlayer1.Join(UnitOfWork);
+        }
+    }
+
+    public class TestService : DomainService<TestContext>
+    {
+        private readonly TestPlayer1 player;
+
+        public TestService(IUnitOfWorkFactory<TestContext> unitOfWorkFactory, TestPlayer1 testPlayer1)
+            : base(unitOfWorkFactory, testPlayer1)
+        {
+            player = testPlayer1;
+        }
+
+        public bool FirstCall()
+        {
+            using (var uow = StartNewUnit())
+            {
+                return uow.UniqueId == player.UnitOfWork.UniqueId;
+            }
+        }
+
+        public bool AnothertCall()
+        {
+            using (var uow = StartNewUnit())
+            {
+                return uow.UniqueId == player.UnitOfWork.UniqueId;
+            }
         }
     }
 }
