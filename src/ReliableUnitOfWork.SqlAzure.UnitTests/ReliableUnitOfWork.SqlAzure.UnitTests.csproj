@@ -20,6 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +30,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>ThinkinousStrongNameKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -50,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainServiceFacts.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="UnitOfWorkFactoryFacts.cs" />
     <Compile Include="UnitOfWorkFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +67,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="ThinkinousStrongNameKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReliableUnitOfWork.SqlAzure\ReliableUnitOfWork.SqlAzure.csproj">

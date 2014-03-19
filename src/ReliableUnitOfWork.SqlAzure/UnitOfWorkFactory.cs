@@ -1,4 +1,5 @@
-﻿using ReliableUnitOfWork.SqlAzure.Interfaces;
+﻿using System;
+using ReliableUnitOfWork.SqlAzure.Interfaces;
 using ReliableUnitOfWork.SqlAzure.Internals;
 using Serilog;
 
@@ -11,10 +12,17 @@ namespace ReliableUnitOfWork.SqlAzure
         {
             Log.Debug("Starting new UoW by UoW Factory: [{0}]", UniqueId);
 
+            if (players == null)
+                throw new ArgumentNullException("players");
+
+
             IUnitOfWork<TDbContext> unitOfWork = new UnitOfWork<TDbContext>();
 
             foreach (var player in players)
             {
+                if (player == null)
+                    break;
+
                 Log.Debug("Joining {2}: [{3}] to UoW: [{1}] by UoW Factory: [{0}]", UniqueId, unitOfWork.UniqueId, player.ToString(), player.UniqueId);
 
                 player.Join(unitOfWork);

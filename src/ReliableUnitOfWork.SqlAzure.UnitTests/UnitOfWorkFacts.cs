@@ -9,8 +9,10 @@ namespace ReliableUnitOfWork.SqlAzure.UnitTests
             [Fact]
             public void ShouldCreateNewInstanceFromUnitDbContext()
             {
-                var unitOfWork = new UnitOfWork<TestContext>();
-                Assert.NotNull(unitOfWork.DbContext);
+                using (var unitOfWork = new UnitOfWork<TestContext>())
+                {
+                    Assert.NotNull(unitOfWork.DbContext);
+                }
             }
         }
 

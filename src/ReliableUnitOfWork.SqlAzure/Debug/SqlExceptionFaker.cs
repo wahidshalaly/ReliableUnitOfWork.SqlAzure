@@ -5,6 +5,20 @@ using System.Runtime.Serialization;
 
 namespace ReliableUnitOfWork.SqlAzure.Debug
 {
+    public enum SqlExceptionNumber : int
+    {
+        TimeoutExpired = -2,
+        EncryptionNotSupported = 20,
+        LoginError = 64,
+        ConnectionInitialization = 233,
+        TransportLevelReceiving = 10053,
+        TransportLevelSending = 10054,
+        EstablishingConnection = 10060,
+        ProcessingRequest = 40143,
+        ServiceBusy = 40501,
+        DatabaseOrServerNotAvailable = 40613
+    }
+
     public static class SqlExceptionFaker
     {
         private readonly static SqlException _error40501 = Generate(SqlExceptionNumber.ServiceBusy);
@@ -18,20 +32,6 @@ namespace ReliableUnitOfWork.SqlAzure.Debug
         public static SqlException Error10053
         {
             get { return _error10053; }
-        }
-
-        public enum SqlExceptionNumber : int
-        {
-            TimeoutExpired = -2,
-            EncryptionNotSupported = 20,
-            LoginError = 64,
-            ConnectionInitialization = 233,
-            TransportLevelReceiving = 10053,
-            TransportLevelSending = 10054,
-            EstablishingConnection = 10060,
-            ProcessingRequest = 40143,
-            ServiceBusy = 40501,
-            DatabaseOrServerNotAvailable = 40613
         }
 
         public static SqlException Generate(SqlExceptionNumber errorNumber)

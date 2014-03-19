@@ -3,20 +3,23 @@ using Xunit;
 
 namespace ReliableUnitOfWork.SqlAzure.UnitTests
 {
-    public class DomainServiceFacts
+    static class DomainServiceFacts
     {
-        private readonly IUnitOfWorkFactory<TestContext> unitOfWorkFactory = new UnitOfWorkFactory<TestContext>();
-        private readonly TestPlayer1 player = new TestPlayer1();
-
-        [Fact]
-        public void ShouldCreateUnitOfWorkPerMethodAndJoinPlayersAccordingly()
+        public class Constructor
         {
-            var service = new TestService(unitOfWorkFactory, player);
+            private readonly IUnitOfWorkFactory<TestContext> unitOfWorkFactory = new UnitOfWorkFactory<TestContext>();
+            private readonly TestPlayer1 player = new TestPlayer1();
 
-            Assert.True(service.FirstCall());
-            Assert.True(service.AnothertCall());
-            Assert.True(service.FirstCall());
-            Assert.True(service.AnothertCall());
+            [Fact]
+            public void ShouldCreateUnitOfWorkPerMethodAndJoinPlayersAccordingly()
+            {
+                var service = new TestService(unitOfWorkFactory, player);
+
+                Assert.True(service.FirstCall());
+                Assert.True(service.AnotherCall());
+                Assert.True(service.FirstCall());
+                Assert.True(service.AnotherCall());
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace ReliableUnitOfWork.SqlAzure.UnitTests
 
     public class TestPlayer2 : UnitOfWorkPlayer<TestContext>
     {
-        public readonly TestPlayer1 TestPlayer1;
+        public TestPlayer1 TestPlayer1 { get; private set; }
 
         public TestPlayer2(TestPlayer1 testPlayer1)
         {
@@ -31,27 +31,27 @@ namespace ReliableUnitOfWork.SqlAzure.UnitTests
 
     public class TestService : DomainService<TestContext>
     {
-        private readonly TestPlayer1 player;
+        public TestPlayer1 TestPlayer1 { get; private set; }
 
         public TestService(IUnitOfWorkFactory<TestContext> unitOfWorkFactory, TestPlayer1 testPlayer1)
             : base(unitOfWorkFactory, testPlayer1)
         {
-            player = testPlayer1;
+            TestPlayer1 = testPlayer1;
         }
 
         public bool FirstCall()
         {
             using (var uow = StartNewUnit())
             {
-                return uow.UniqueId == player.UnitOfWork.UniqueId;
+                return uow.UniqueId == TestPlayer1.UnitOfWork.UniqueId;
             }
         }
 
-        public bool AnothertCall()
+        public bool AnotherCall()
         {
             using (var uow = StartNewUnit())
             {
-                return uow.UniqueId == player.UnitOfWork.UniqueId;
+                return uow.UniqueId == TestPlayer1.UnitOfWork.UniqueId;
             }
         }
     }
