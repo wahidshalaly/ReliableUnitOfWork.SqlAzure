@@ -1,12 +1,16 @@
 properties {
+	$base_dir = . resolve-path .\
+
 	# .net framework version
 	$framework = "4.5.1"
 
+	# tools folders/files
+	$tools_dir = "$base_dir\tools"
+	$nuget_dir = "$tools_dir\NuGet.CommandLine.2.8.0"
+	$xunit_dir = "$tools_dir\xunit.runners.1.9.2"
+
 	# src & build folders/files
-	$base_dir = . resolve-path .\
 	$build_dir = "$base_dir\Build"
-	$nuget_dir = "$base_dir\src\packages\NuGet.CommandLine.2.8.0\tools\" #nuget.exe
-	$xunit_dir = "$base_dir\src\packages\xunit.runners.1.9.2\tools" #xunit.console.clr4.exe
 	$sln_file = "$base_dir\src\ReliableUnitOfWork.SqlAzure.sln"
 	$unit_tests = "$build_dir\ReliableUnitOfWork.SqlAzure.UnitTests.dll"
 }
@@ -14,7 +18,7 @@ properties {
 task default -depends run_tests
 
 task clean {
-	exec { Remove-Item $build_dir -Recurse }
+	exec { Remove-Item $build_dir -Recurse -ErrorAction SilentlyContinue }
 }
 
 task restore_nuget_packages -depends clean {
