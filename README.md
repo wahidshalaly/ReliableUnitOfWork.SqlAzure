@@ -9,3 +9,5 @@ Examples
 Coming soon...
 
 For now you may check [this](http://blog.thinkinuous.com/2014/03/reliableunitofworksqlazure-v040-released.html).
+
+[![Build status](https://ci.appveyor.com/api/projects/status/os7955l22ev37ie0)](https://ci.appveyor.com/project/waheedsayed/reliableunitofwork-sqlazure)
