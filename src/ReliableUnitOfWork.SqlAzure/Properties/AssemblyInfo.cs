@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ReliableUnitOfWork.SqlAzure")]
-[assembly: AssemblyDescription("This is a light UnitOfWork implementation based on EF6 & SqlAzureExecutionStrategy to be relaiable on SqlAzure.")]
+[assembly: AssemblyDescription("A light-weight implementation of UnitOfWork Pattern based on Entity Framework & SqlAzureExecutionStrategy.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Wahid Shalaly")]
 [assembly: AssemblyProduct("ReliableUnitOfWork.SqlAzure")]
@@ -33,8 +32,8 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.4.0")]
-[assembly: AssemblyFileVersion("0.4.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
 
 // CA1014: Mark assemblies with CLSCompliantAttribute
 [assembly: CLSCompliant(true)]

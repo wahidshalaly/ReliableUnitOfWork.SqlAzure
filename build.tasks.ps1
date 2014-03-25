@@ -2,9 +2,6 @@ properties {
 	# .net framework version
 	$framework = "4.5.1"
 
-	# project version - not in function yet
-	$version = "0.4.2"
-
 	# src & build folders/files
 	$base_dir = . resolve-path .\
 	$build_dir = "$base_dir\Build"
