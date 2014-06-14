@@ -32,10 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>ReliableUnitOfWork.SqlAzure.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -67,8 +68,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="ReliableUnitOfWork.SqlAzure.snk" />
-    <None Include="ThinkinousStrongNameKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReliableUnitOfWork.SqlAzure\ReliableUnitOfWork.SqlAzure.csproj">
