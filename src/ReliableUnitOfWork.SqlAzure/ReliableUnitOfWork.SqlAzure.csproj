@@ -70,11 +70,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\SqlAzureDbConfigurationWithDebuggingInterceptor.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="UnitDbContext.cs" />
-    <Compile Include="Debug\DebuggingCommandInterceptor.cs" />
-    <Compile Include="Debug\SqlExceptionFaker.cs" />
     <Compile Include="DomainService.cs" />
     <Compile Include="Internals\DomainServiceBase.cs" />
     <Compile Include="Interfaces\IDbContext.cs" />
