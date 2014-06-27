@@ -5,6 +5,8 @@
     {
         IUnitOfWork<TDbContext> UnitOfWork { get;  }
 
+        TDbContext Db { get; }
+
         void Join(IUnitOfWork<TDbContext> unitOfWork);
     }
 }

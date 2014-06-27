@@ -27,8 +27,7 @@ namespace ReliableUnitOfWork.SqlAzure.UnitTests
             [Fact]
             public void ShouldCreateNewUnitOfWork()
             {
-                var testPlayer1 = new TestPlayer1();
-                var unitOfWork = unitOfWorkFactory.StartNew(testPlayer1);
+                var unitOfWork = unitOfWorkFactory.StartNew();
 
                 Assert.NotNull(unitOfWork);
                 Assert.NotNull(unitOfWork.DbContext);
@@ -42,6 +41,9 @@ namespace ReliableUnitOfWork.SqlAzure.UnitTests
                 var testPlayer1 = new TestPlayer1();
                 var unitOfWork = unitOfWorkFactory.StartNew(testPlayer1);
 
+                Assert.NotNull(testPlayer1.UnitOfWork);
+                Assert.NotNull(testPlayer1.UnitOfWork.DbContext);
+                Assert.Same(testPlayer1.UnitOfWork.DbContext, testPlayer1.Db);
                 Assert.Equal(unitOfWork.UniqueId, testPlayer1.UnitOfWork.UniqueId);
             }
         }

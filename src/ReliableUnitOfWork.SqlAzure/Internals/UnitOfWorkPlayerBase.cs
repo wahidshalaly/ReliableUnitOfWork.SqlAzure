@@ -8,6 +8,8 @@ namespace ReliableUnitOfWork.SqlAzure.Internals
     {
         public IUnitOfWork<TDbContext> UnitOfWork { get; private set; }
 
+        public TDbContext Db { get; private set; }
+
         public event EventHandler PlayerJoinedUnit;
 
         protected UnitOfWorkPlayerBase()
@@ -23,6 +25,7 @@ namespace ReliableUnitOfWork.SqlAzure.Internals
                 throw new ArgumentNullException("unitOfWork");
 
             UnitOfWork = unitOfWork;
+            Db = unitOfWork.DbContext;
             OnPlayerJoinedUnit();
         }
 
