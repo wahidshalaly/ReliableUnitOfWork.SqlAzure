@@ -10,8 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\.gitignore = ..\.gitignore
 		..\build.tasks.ps1 = ..\build.tasks.ps1
 		..\LICENSE = ..\LICENSE
+		..\NextVersion.txt = ..\NextVersion.txt
 		..\README.md = ..\README.md
 		..\reliable_uow.ico = ..\reliable_uow.ico
+		ReliableUnitOfWork.SqlAzure\ReliableUnitOfWork.SqlAzure.nuspec = ReliableUnitOfWork.SqlAzure\ReliableUnitOfWork.SqlAzure.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReliableUnitOfWork.SqlAzure.UnitTests", "ReliableUnitOfWork.SqlAzure.UnitTests\ReliableUnitOfWork.SqlAzure.UnitTests.csproj", "{EA7B64E9-55F3-4987-BCAF-86B03C985009}"
