@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FE41EFBC-FD1D-4DFA-9982-B7073D22AC73}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
+		..\build.tasks.ps1 = ..\build.tasks.ps1
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 		..\reliable_uow.ico = ..\reliable_uow.ico
