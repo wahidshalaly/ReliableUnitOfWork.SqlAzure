@@ -1,30 +1,26 @@
 properties {
-	# base & build directories
-	$base_dir = . resolve-path .\
-	$tests_dir = "$base_dir\src\ReliableUnitOfWork.SqlAzure.UnitTests\bin\Release"
-
-	# .net framework version
-	$framework = "4.5.1"
+	# build variables
+	$framework = "4.5.1"		# .net framework version
+	$configuration = "Release"	# build configuration
 	
-	# solution file & unit tests
+	# directories
+	$base_dir = . resolve-path .\
+	$tests_dir = "$base_dir\src\ReliableUnitOfWork.SqlAzure.UnitTests\bin\$configuration"
+
+	# files
 	$sln_file = "$base_dir\src\ReliableUnitOfWork.SqlAzure.sln"
 	$unit_tests = "$tests_dir\ReliableUnitOfWork.SqlAzure.UnitTests.dll"
-	$nuspec_file = "$base_dir\src\ReliableUnitOfWork.SqlAzure\ReliableUnitOfWork.SqlAzure.csproj"
+	$nuspec_file = "$base_dir\src\ReliableUnitOfWork.SqlAzure\ReliableUnitOfWork.SqlAzure.nuspec"
 }
 
 task default -depends PackNuGetPackages
 
-task GitVersion {
-	$assemblyVersion = (gitversion | Out-String | ConvertFrom-Json).AssemblySemVer
-	Write-Host "Current Assemby Version (from GitVersion): $assemblyVersion"
-}
-
-task RestoreNuGetPackages -depends GitVersion {
+task RestoreNuGetPackages {
 	exec { nuget.exe restore $sln_file }
 }
 
 task BuildSolution -depends RestoreNuGetPackages {
-	exec { msbuild "/t:Clean;Rebuild" "/p:configuration=Release;OutDir=$build_dir" $sln_file }
+	exec { msbuild "/t:Clean;Build" "/p:Configuration=$configuration" $sln_file }
 }
 
 task RunUnitTests -depends BuildSolution {
@@ -32,5 +28,8 @@ task RunUnitTests -depends BuildSolution {
 }
 
 task PackNuGetPackages -depends RunUnitTests {
-	exec { nuget.exe pack $nuspec_file }
+	# assembly version  calculated by GitVersion
+	$version = (gitversion | Out-String | ConvertFrom-Json).NuGetVersion
+	Write-Host "NuGet Version (calculated by GitVersion): $version"
+	exec { nuget.exe pack $nuspec_file -Version $version -Prop Configuration=$configuration -Symbols -Verbosity detailed }
 }
